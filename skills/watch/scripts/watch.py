@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """/watch entry point: download video, extract frames, parse transcript.
 
-Prints a markdown report to stdout listing frame paths + transcript. Claude
-then Reads each frame path to see the video.
+Prints a markdown report to stdout listing frame paths and transcript. The
+hosting agent, including Codex, reads each frame to inspect the video.
 """
 from __future__ import annotations
 
