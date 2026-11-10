@@ -1,0 +1,4 @@
+interface:
+  display_name: "Watch videos"
+  short_description: "Inspect video frames and transcripts using Codex"
+  default_prompt: "Use $watch to analyze this video using local frame extraction and captions, citing timestamps."
