@@ -1,44 +1,41 @@
 {
-  "name": "watch",
-  "version": "0.3.2",
-  "description": "Give an agent video evidence: timestamped frames and native captions, with optional local WhisperX or Groq/OpenAI transcription.",
+  "name": "gpt-video",
+  "version": "0.1.0",
+  "description": "Codex video toolkit with local video evidence (Watch) and approval-based skill learning (Learn).",
   "author": {
-    "name": "Bradley Bonanno"
+    "name": "evrydayuni"
   },
-  "homepage": "https://github.com/bradautomates/claude-video",
-  "repository": "https://github.com/bradautomates/claude-video",
+  "homepage": "https://github.com/evrydayuni/gpt-video",
+  "repository": "https://github.com/evrydayuni/gpt-video",
   "license": "MIT",
   "keywords": [
-    "video",
+    "codex",
     "watch",
+    "learn",
     "youtube",
-    "vimeo",
-    "tiktok",
+    "podcast",
     "transcription",
-    "whisper",
-    "yt-dlp",
+    "skills",
+    "video",
     "ffmpeg",
-    "multimodal",
-    "frames",
-    "whisperx"
+    "yt-dlp"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "watch",
-    "shortDescription": "Give your agent a video input \u2014 paste a URL or local path and ask about it.",
-    "longDescription": "watch gives an agent timestamped video frames and a transcript from native captions or an optional local WhisperX / cloud Whisper fallback. The agent views the selected frames and answers from the available visual and spoken evidence.",
-    "developerName": "Bradley Bonanno",
+    "displayName": "GPT Video",
+    "shortDescription": "Watch videos and learn reusable skills with Codex.",
+    "longDescription": "Watch turns video into timestamped transcript and image evidence for Codex. Learn turns tutorial evidence into reusable Agent Skills, requiring review before installation.",
+    "developerName": "evrydayuni",
     "category": "Productivity",
     "capabilities": [
       "Interactive",
       "Read"
     ],
-    "websiteURL": "https://github.com/bradautomates/claude-video",
+    "websiteURL": "https://github.com/evrydayuni/gpt-video",
     "defaultPrompt": [
-      "/watch https://youtu.be/dQw4w9WgXcQ what happens at the 30 second mark?",
-      "/watch ~/Movies/screen-recording.mp4 when does the UI break?",
-      "/watch https://youtu.be/<long-talk> summarize this"
+      "Use $watch to inspect this video locally and explain key moments.",
+      "Use $learn to turn this tutorial into a reusable skill; show the complete draft before installation."
     ],
-    "brandColor": "#E11D48"
+    "brandColor": "#2563EB"
   }
 }
