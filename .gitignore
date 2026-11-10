@@ -12,6 +12,13 @@ htmlcov/
 # build artifact from scripts/build-skill.sh
 /dist/
 
+# Generated learning evidence and drafts (may contain copyrighted source snippets)
+/learned/
+
+# Secret material
+.env
+*.env.local
+
 # local Claude Code settings
 .claude/settings.local.json
 
