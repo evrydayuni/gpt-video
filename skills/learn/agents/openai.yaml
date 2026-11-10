@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learn from videos"
+  short_description: "Turn tutorials and podcasts into reviewable Codex skills"
+  default_prompt: "Use $learn to turn this educational video into a reusable skill. Show the full draft and sources before installing."

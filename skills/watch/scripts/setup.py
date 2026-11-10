@@ -141,13 +141,13 @@ def _whisperx_status(cfg, detailed=False):
     return ready
 
 
-def _status(detailed=False):
+def _status(detailed=False, engine_override=None):
     missing = _check_binaries()
     _check_file_permissions(CONFIG_FILE)
     cfg = get_config()
     gemini_key = bool(load_gemini_key())
     try:
-        engine = resolve_engine(cfg['engine'], gemini_key)
+        engine = resolve_engine(engine_override or cfg['engine'], gemini_key)
     except ConfigError:
         engine = 'gemini'  # Explicitly chosen but the key is missing; gemini_key_present reports it.
     binaries_required = engine == 'local'
@@ -182,17 +182,17 @@ def _status(detailed=False):
     return result
 
 
-def cmd_check():
+def cmd_check(engine_override=None):
     # Optional credentials and local-model readiness never block base watch.
-    status = _status()
+    status = _status(engine_override=engine_override)
     if status['can_proceed']:
         return 0
     print(f"[watch] Missing {', '.join(status['missing_binaries'])}. Run python3 \"{Path(__file__).resolve()}\".", file=sys.stderr)
     return 2
 
 
-def cmd_json():
-    print(json.dumps(_status(detailed=True), indent=2))
+def cmd_json(engine_override=None):
+    print(json.dumps(_status(detailed=True, engine_override=engine_override), indent=2))
     return 0
 
 
@@ -324,9 +324,9 @@ def main():
     args = parser.parse_args()
     try:
         if args.check:
-            return cmd_check()
+            return cmd_check(args.engine)
         if args.json:
-            return cmd_json()
+            return cmd_json(args.engine)
         return cmd_install('whisperx' if args.install_whisperx else args.backend, args.detail, args.engine)
     except (ConfigError, OSError, ValueError) as exc:
         print(f'[setup] {exc}', file=sys.stderr)
